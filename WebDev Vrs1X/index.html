@@ -123,7 +123,7 @@
 
         <section id="kontakt" class="content-section section-animate">
             <h2 class="section-title">Kontaktirajte Me</h2>
-            <form action="#" method="POST" class="contact-form">
+            <form action="#" method="POST" class="contact-form" id="contact-form">
     
                 <div id="selected-package-info" class="package-selection-display card-animate">
                     <p>Trenutno niste odabrali paket. Molimo odaberite ga iz sekcije **Usluge**.</p>
@@ -151,10 +151,11 @@
                     </div>
                 </div>
 
-                <input type="text" name="ime" placeholder="Vaše Ime i Prezime" required>
-                <input type="email" name="email" placeholder="Email Adresa" required>
-                <textarea name="poruka" rows="5" placeholder="Ukratko opišite projekat i Vaše želje..." required></textarea>
-                <button type="submit" class="btn btn-primary">Pošalji Poruku i Potvrdi Odabir</button>
+                <input type="text" name="ime" id="input-ime" placeholder="Vaše Ime i Prezime" required>
+    <input type="email" name="email" id="input-email" placeholder="Email Adresa" required>
+    <textarea name="poruka" id="input-poruka" rows="5" placeholder="Ukratko opišite projekat i Vaše želje..." required></textarea>
+    
+    <button type="submit" id="submit-whatsapp-btn" class="btn btn-primary">Pošalji Poruku putem WhatsApp-a</button>
             </form>
 
         </main>

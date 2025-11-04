@@ -264,4 +264,66 @@ document.addEventListener('keydown', (e) => {
         closeModal();
     }
     });
+
+    // 6. LOGIKA SLANJA PORUKE NA WHATSAPP
+
+const contactForm = document.getElementById('contact-form');
+const targetPhoneNumber = '381611633267'; // VAŠ BROJ
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Spreči standardno slanje forme
+
+        // 1. Provera validnosti forme
+        if (!contactForm.checkValidity()) {
+            // Ako forma nije validna, aktivirajemo brauzer validaciju
+            e.target.reportValidity();
+            return;
+        }
+
+        // 2. Prikupljanje svih podataka
+        const ime = document.getElementById('input-ime').value;
+        const email = document.getElementById('input-email').value;
+        const poruka = document.getElementById('input-poruka').value;
+        
+        const odabraniPaket = selectedPackageInput.value; // Iz funkcije calculateTotal()
+        const ukupnaCena = totalPriceInput.value; // Iz funkcije calculateTotal()
+
+        const maintenanceCheckbox = document.getElementById('maintenance-checkbox');
+        const maintenancePeriod = document.getElementById('maintenance-period');
+        
+        let odrzavanjeInfo = 'BEZ ODRŽAVANJA';
+
+        if (maintenanceCheckbox.checked) {
+            const periodText = maintenancePeriod.options[maintenancePeriod.selectedIndex].text;
+            odrzavanjeInfo = `UKLJUČENO: ${periodText}`;
+        }
+
+        // 3. Kreiranje poruke za WhatsApp
+        let whatsappMessage = `
+*--- NOVI ZAHTEV ZA PROJEKAT ---*
+Ime i Prezime: ${ime}
+Email: ${email}
+    
+*ODABIR PAKETA*
+Paket: ${odabraniPaket}
+Održavanje: ${odrzavanjeInfo}
+*UKUPNA CENA PROJEKTA: €${parseFloat(ukupnaCena).toLocaleString('sr-RS', { minimumFractionDigits: 2 })}*
+    
+*OPIS PROJEKTA*
+"${poruka}"
+        `;
+
+        // Uklanjanje viška razmaka i specijalnih karaktera za URL
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        
+        // 4. Generisanje i otvaranje WhatsApp Linka
+        const whatsappURL = `https://wa.me/${targetPhoneNumber}?text=${encodedMessage}`;
+        
+        window.open(whatsappURL, '_blank');
+        
+        // Opciono: Resetovanje forme nakon otvaranja WhatsApp-a
+        // contactForm.reset(); 
+    });
+}
 });

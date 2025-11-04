@@ -1,0 +1,647 @@
+/* Definicija Boja i Fonta */
+:root {
+    --color-black: #121212; /* Tamno siva za pozadinu */
+    --color-white: #FFFFFF;
+    --color-purple: #6A0DAD; /* Kraljevsko Ljubičasta - Glavni Akcenat */
+    --color-cyan: #00BFFF; /* Električno Plava - Dodatni Kontrast */
+    --color-text-light: #E0E0E0;
+    --color-border: #2A2A2A;
+    --font-primary: 'Poppins', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* Opšte Reseti i Osnove */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-black);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    padding-left: 80px; /* Prostor za fiksni sidebar na desktopu */
+}
+
+a {
+    color: var(--color-cyan);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--color-purple);
+}
+
+/* --- GLAVNI ELEMENTI --- */
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+h2 { font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; }
+h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+.accent-color {
+    color: var(--color-purple);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-cyan);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-text-light);
+}
+
+.content-section {
+    padding: 100px 5% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- NAVIGACIJA I FIKSNI ELEMENTI --- */
+
+/* Fiksna Bočna Navigacija (Desktop) */
+#sidebar-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background-color: var(--color-black);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: width var(--transition-speed) ease-in-out;
+    overflow: hidden; 
+}
+
+#sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    color: var(--color-text-light);
+    font-size: 1.4rem;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+#sidebar-nav a:hover {
+    background-color: var(--color-border);
+    color: var(--color-purple);
+}
+
+.nav-text {
+    position: absolute;
+    left: 80px; 
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    background-color: var(--color-black);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-speed);
+    z-index: 1001;
+    border: 1px solid var(--color-purple);
+}
+
+#sidebar-nav a:hover .nav-text {
+    opacity: 1;
+}
+
+/* WhatsApp Dugme */
+.whatsapp-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: var(--color-cyan);
+    color: var(--color-black);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    box-shadow: 0 0 15px var(--color-cyan);
+    z-index: 999;
+    transition: transform 0.4s ease-in-out;
+    animation: pulse 2s infinite; 
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0px rgba(0, 191, 255, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 191, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 191, 255, 0); }
+}
+
+/* --- DUGMIĆI --- */
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed), transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+    box-shadow: 0 0 10px rgba(106, 13, 221, 0.5); 
+}
+
+.btn-primary:hover {
+    background-color: #7B1FA2; 
+    box-shadow: 0 0 20px rgba(106, 13, 221, 0.8);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-cyan);
+    border: 2px solid var(--color-cyan);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-cyan);
+    color: var(--color-black);
+    box-shadow: 0 0 15px var(--color-cyan);
+    transform: translateY(-2px);
+}
+
+/* --- HERO SEKCIJA --- */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 800px;
+    padding: 20px;
+}
+
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* --- SEKCIJA O MENI --- */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
+}
+
+.feature-box {
+    background-color: #1F1F1F;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(106, 13, 221, 0.2);
+}
+
+.feature-box i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* --- SEKCIJA PAKETI USLUGA --- */
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.package-card {
+    background-color: #1F1F1F;
+    padding: 40px 30px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    text-align: center;
+    /* Spojeni i ispravljeni hover stilovi ovde */
+    transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s; 
+    position: relative;
+}
+
+.package-card.featured {
+    border: 2px solid var(--color-purple);
+    box-shadow: 0 0 30px rgba(106, 13, 221, 0.4);
+}
+
+/* ISPRAVLJEN HOVER STIL */
+.package-card:hover {
+    border-color: var(--color-cyan);
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); 
+}
+
+.package-card.selected {
+    border: 3px solid var(--color-purple); 
+    box-shadow: 0 0 25px rgba(106, 13, 221, 0.7);
+    transform: scale(1.02);
+}
+
+.package-card h3 {
+    margin-top: 0;
+    color: var(--color-purple);
+}
+
+.price, .price-monthly {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 15px 0 25px;
+    color: var(--color-cyan);
+}
+
+.package-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.package-card ul li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--color-border);
+    display: flex;
+    align-items: center;
+}
+
+.package-card ul li:last-child {
+    border-bottom: none;
+}
+
+.package-card ul li i {
+    margin-right: 10px;
+    color: var(--color-purple);
+}
+
+.package-card ul li.faded i {
+    color: var(--color-text-light);
+    opacity: 0.5;
+}
+
+.tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-cyan);
+    color: var(--color-black);
+    padding: 5px 15px;
+    border-bottom-left-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* --- DINAMIČKI PRIKAZ PAKETA I ODRŽAVANJA --- */
+
+.package-selection-display {
+    background-color: var(--color-black);
+    padding: 20px;
+    border: 2px solid var(--color-border);
+    border-left: 5px solid var(--color-cyan);
+    border-radius: 8px;
+    margin-bottom: 25px;
+    transition: all 0.5s ease-in-out;
+}
+.package-selection-display h4 {
+    color: var(--color-cyan);
+    margin-bottom: 5px;
+}
+.package-selection-display .final-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-purple);
+    margin-top: 10px;
+}
+.package-selection-display.card-animate.visible {
+    animation: fadeInScale 0.5s ease-out; 
+}
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Stil za Održavanje Opcije */
+.maintenance-box {
+    background-color: #1F1F1F;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    margin-bottom: 20px;
+}
+
+.maintenance-box label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    /*user-select: none;*/
+}
+
+#maintenance-checkbox {
+    opacity: 0; 
+    position: absolute;
+}
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-cyan);
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: all 0.3s;
+    position: relative;
+}
+#maintenance-checkbox:checked + .custom-checkbox {
+    background-color: var(--color-cyan);
+    border-color: var(--color-cyan);
+}
+#maintenance-checkbox:checked + .custom-checkbox::after {
+    content: '\f00c'; 
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--color-black);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+}
+
+#maintenance-details {
+    margin-top: 10px;
+    padding-left: 30px;
+    border-left: 2px dashed var(--color-purple);
+}
+
+#maintenance-period {
+    padding: 8px;
+    background-color: var(--color-black);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-cyan);
+    border-radius: 4px;
+    margin: 5px 0 10px;
+}
+
+/* --- PORTFOLIO --- */
+
+.portfolio-item {
+    background-color: #1F1F1F;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--color-purple);
+}
+
+.accent-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 500;
+    color: var(--color-cyan);
+}
+
+.accent-link i {
+    transition: transform 0.3s;
+}
+
+.accent-link:hover i {
+    transform: translateX(5px);
+}
+
+/* --- KONTAKT FORMA --- */
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    background-color: var(--color-black);
+    color: var(--color-text-light);
+    font-family: var(--font-primary);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* FUTURISTIČKI INPUT GLOW */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-purple);
+    box-shadow: 0 0 10px rgba(106, 13, 221, 0.5); /* Ljubičasti glow */
+    outline: none;
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.social-links a {
+    font-size: 2rem;
+    margin: 0 15px;
+    color: var(--color-text-light);
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--color-cyan);
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+/* --- ANIMACIJE NA SKROLU (Opacity/Translate) --- */
+.section-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.section-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-animate {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.card-animate.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* --- RESPONSIVE DIZAJN (Mobilni Prilagođavanje) --- */
+
+/* Hamburgver Ikonica (Kreirajte ga u HTML-u) */
+.menu-toggle {
+    display: none; /* Sakrivamo na desktopu */
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1005; 
+}
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-purple);
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+.menu-toggle .bar:nth-child(1) { top: 0; }
+.menu-toggle .bar:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.menu-toggle .bar:nth-child(3) { bottom: 0; }
+
+/* Animacija X-a */
+.menu-toggle.active .bar:nth-child(1) { transform: translateY(13px) rotate(45deg); }
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.active .bar:nth-child(3) { transform: translateY(-13px) rotate(-45deg); }
+
+
+@media (max-width: 900px) {
+    
+    body {
+        padding-left: 0; 
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    
+    .menu-toggle {
+        display: block; /* Prikazujemo na mobilnom */
+    }
+
+    /* Fiksni Top Navbar/Hamburger Meni na mobilnom */
+    #sidebar-nav {
+        /* Postavljamo ga za prikaz na celom ekranu */
+        width: 100%;
+        height: 100vh; /* Celokupna visina ekrana */
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 80px;
+        border-right: none;
+        border-bottom: none;
+        
+        /* Skrivamo navigaciju van ekrana */
+        transform: translateX(-100%); 
+        transition: transform 0.4s ease-in-out;
+    }
+    
+    #sidebar-nav.active {
+        transform: translateX(0); /* Prikazujemo navigaciju */
+    }
+    
+    #sidebar-nav a {
+        padding: 20px;
+        font-size: 1.5rem;
+        justify-content: flex-start; /* Poravnanje levo */
+        width: 90%;
+        margin: 5px auto;
+        border-radius: 5px;
+    }
+    
+    .nav-text {
+        display: inline; /* Prikazujemo tekst u mobilnom meniju */
+        position: static;
+        transform: none;
+        opacity: 1;
+        background-color: transparent;
+        border: none;
+        margin-left: 15px;
+        color: var(--color-text-light);
+    }
+    
+    #sidebar-nav a:hover .nav-text {
+        opacity: 1;
+    }
+    
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+        right: 15px;
+        bottom: 75px; 
+    }
+}
+
+@media (max-width: 600px) {
+    
+    .content-section {
+        padding: 60px 5% 40px;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.7rem; }
+}

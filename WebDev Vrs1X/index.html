@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaš Portfolio - Web Developer | Kvalitet & Brzina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <nav id="sidebar-nav">
+        <a href="#hero" title="Početna"><i class="fas fa-home"></i><span class="nav-text">Početna</span></a>
+        <a href="#o-meni" title="O Meni"><i class="fas fa-user-tie"></i><span class="nav-text">O Meni</span></a>
+        <a href="#usluge" title="Paketi Usluga"><i class="fas fa-box-open"></i><span class="nav-text">Usluge</span></a>
+        <a href="#portfolio" title="Portfolio"><i class="fas fa-laptop-code"></i><span class="nav-text">Portfolio</span></a>
+        <a href="#kontakt" title="Kontakt"><i class="fas fa-envelope"></i><span class="nav-text">Kontakt</span></a>
+    </nav>
+    
+    <a href="https://wa.me/+381611633267?text=Zdravo,%20želim%20da%20razgovaramo%20o%20projektu." 
+    class="whatsapp-btn fixed-right-bottom" target="_blank" rel="noopener noreferrer" title="Kontaktirajte me putem WhatsApp-a">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <main>
+        
+        <section id="hero" class="hero-section section-animate">
+            <div class="hero-content">
+                <h1>Web Developer & <span class="accent-color">UI/UX Entuzijasta</span></h1>
+                <p>Kvalitetan kod. Perfekcija u detaljima. Brza i pouzdana implementacija za vaš biznis.</p>
+                <a href="#usluge" class="btn btn-primary">Pogledajte Moje Pakete</a>
+            </div>
+            <div id="particle-canvas"></div> 
+        </section>
+        
+        <section id="o-meni" class="content-section section-animate">
+            <h2 class="section-title">Zašto izabrati mene?</h2>
+            <div class="about-grid">
+                <div class="feature-box card-animate">
+                    <i class="fas fa-gem accent-color"></i>
+                    <h3>Čist, Validiran Kod</h3>
+                    <p>Predan sam detaljima i kreiranju koda bez grešaka, optimizovanog za performanse.</p>
+                </div>
+                <div class="feature-box card-animate">
+                    <i class="fas fa-rocket accent-color"></i>
+                    <h3>Brzina i Optimizacija</h3>
+                    <p>Sajtovi su munjevito brzi, sa visokim ocenama na PageSpeed Insights-u.</p>
+                </div>
+                <div class="feature-box card-animate">
+                    <i class="fas fa-mobile-alt accent-color"></i>
+                    <h3>Mobilna Perfekcija</h3>
+                    <p>Bez preklapanja. Savršeno iskustvo na svakom uređaju (Mobile First pristup).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="usluge" class="content-section section-animate">
+            <h2 class="section-title">🛠️ Moje Usluge i Paketi</h2>
+            <p class="section-subtitle">Izaberite paket koji najbolje odgovara vašim potrebama i budžetu.</p>
+
+            <div class="package-grid">
+                
+                <div class="package-card card-animate" data-package-id="start" data-package-name="Start" data-package-price="299">
+                    <h3 class="price">€299</h3>
+                    <p class="price-monthly">Jednokratno</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Jednostavan One-Page Layout</li>
+                        <li><i class="fas fa-check"></i> Osnovna SEO Optimizacija</li>
+                        <li><i class="fas fa-check"></i> Mobile Responsive Dizajn</li>
+                        <li class="faded"><i class="fas fa-times"></i> CMS Integracija</li>
+                        <li class="faded"><i class="fas fa-times"></i> Napredne Animacije</li>
+                    </ul>
+                    <button class="btn btn-secondary select-package-btn" data-package-id="start">Odaberi Paket</button>
+                </div>
+                
+                <div class="package-card card-animate featured" data-package-id="pro" data-package-name="Pro" data-package-price="599">
+                    <span class="tag">NAJPOPULARNIJE</span>
+                    <h3 class="price">€599</h3>
+                    <p class="price-monthly">Jednokratno</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Multi-Page Struktura (do 8 strana)</li>
+                        <li><i class="fas fa-check"></i> CMS Integracija (za lako menjanje sadržaja)</li>
+                        <li><i class="fas fa-check"></i> **Napredne interaktivne animacije**</li>
+                        <li><i class="fas fa-check"></i> Premium podrška 3 meseca</li>
+                        <li><i class="fas fa-check"></i> Kompletna SEO Optimizacija</li>
+                    </ul>
+                    <button class="btn btn-primary select-package-btn" data-package-id="pro">Odaberi Paket</button>
+                </div>
+
+                <div class="package-card card-animate" data-package-id="custom" data-package-name="Custom Project" data-package-price="0">
+                    <h3 class="price">Po Dogovoru</h3>
+                    <p class="price-monthly">Nakon Konsultacije</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> E-commerce / Web Aplikacije</li>
+                        <li><i class="fas fa-check"></i> Integracija eksternih API-ja</li>
+                        <li><i class="fas fa-check"></i> Sve iz PRO paketa + neograničeno</li>
+                        <li><i class="fas fa-check"></i> Detaljna strategija razvoja</li>
+                        <li class="faded"><i class="fas fa-check"></i> Mesečno održavanje (opciono)</li>
+                    </ul>
+                    <button class="btn btn-secondary select-package-btn" data-package-id="custom">Po Dogovoru</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="content-section section-animate">
+            <h2 class="section-title">Moji Najbolji Projekti</h2>
+            <div class="portfolio-grid"> <div class="portfolio-item card-animate" data-project-id="spectra-vision">
+                    <div class="project-details">
+                        <h3>Spectra Vision - Optometrija</h3>
+                        <p>Moderan i brz sajt za optometrijsku ordinaciju. Kompletan Mobile-First dizajn i implementacija.</p>
+                        <a href="https://spectra-vision-preview.onrender.com" target="_blank" rel="noopener noreferrer" class="accent-link">Poseti Sajt <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="kontakt" class="content-section section-animate">
+            <h2 class="section-title">Kontaktirajte Me</h2>
+            <form action="#" method="POST" class="contact-form">
+    
+                <div id="selected-package-info" class="package-selection-display card-animate">
+                    <p>Trenutno niste odabrali paket. Molimo odaberite ga iz sekcije **Usluge**.</p>
+                </div>
+                
+                <input type="hidden" name="selected_package" id="selected-package-input" value="Nije odabrano">
+                <input type="hidden" name="total_price" id="total-price-input" value="0">
+
+                <div id="maintenance-options" class="maintenance-box">
+                    <label for="maintenance-checkbox">
+                        <input type="checkbox" id="maintenance-checkbox">
+                        <span class="custom-checkbox"></span>
+                        Dodaj mesečno održavanje projekta (€49/mesečno)
+                    </label>
+                    
+                    <div id="maintenance-details" style="display: none;">
+                        <p>Odaberite period (Popust se primenjuje):</p>
+                        <select id="maintenance-period">
+                            <option value="1" data-discount="0">1 Mesec (Bez popusta)</option>
+                            <option value="3" data-discount="0.05">3 Meseca (5% Popusta)</option>
+                            <option value="6" data-discount="0.10">6 Meseci (10% Popusta)</option>
+                            <option value="12" data-discount="0.15">12 Meseci (15% Popusta)</option>
+                        </select>
+                        <p class="monthly-price-display">Mesečna cena: <span id="current-maintenance-price">€70</span></p>
+                    </div>
+                </div>
+
+                <input type="text" name="ime" placeholder="Vaše Ime i Prezime" required>
+                <input type="email" name="email" placeholder="Email Adresa" required>
+                <textarea name="poruka" rows="5" placeholder="Ukratko opišite projekat i Vaše želje..." required></textarea>
+                <button type="submit" class="btn btn-primary">Pošalji Poruku i Potvrdi Odabir</button>
+            </form>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Arsic Development. Sva prava zadržana. Kreirano sa strašću.</p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+        
+        <script src="script.js"></script>
+</body>
+</html>

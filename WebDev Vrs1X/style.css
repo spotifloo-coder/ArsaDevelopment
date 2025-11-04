@@ -645,3 +645,143 @@ footer {
     h1 { font-size: 2rem; }
     h2 { font-size: 1.7rem; }
 }
+
+/* --- MODAL (POPUP) STILOVI --- */
+
+/* Kontejner koji prekriva ceo ekran (Overlay) */
+#modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Skoro crna, blago providna pozadina */
+    display: none; /* Inicijalno sakriveno */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    padding: 20px;
+}
+
+#modal-container.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Stil samog Pop-upa (Modal Dialog) */
+.modal-dialog {
+    background-color: transparent;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s; /* Brutalna animacija */
+}
+
+#modal-container.active .modal-dialog {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Sadržaj Modala (Unutrašnja kartica) */
+.modal-content {
+    background-color: var(--color-black);
+    padding: 40px;
+    border-radius: 12px;
+    border: 3px solid var(--color-purple); /* Debeli akcentovani okvir */
+    box-shadow: 0 0 40px rgba(106, 13, 221, 0.5); /* Ljubičasti glow */
+}
+
+.modal-content h3 {
+    margin-top: 10px;
+    font-size: 1.8rem;
+    color: var(--color-cyan);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 10px;
+}
+
+.modal-content p {
+    margin: 15px 0;
+    color: var(--color-text-light);
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.modal-content ul li {
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--color-border);
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+
+.modal-content ul li::before {
+    content: '\f058'; /* Check-circle ikonica */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--color-purple);
+    margin-right: 10px;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.modal-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Dugme za Zatvaranje (X) */
+.modal-close-btn {
+    position: absolute;
+    top: -15px; /* Postavljamo ga van kutije */
+    right: -15px;
+    background-color: var(--color-cyan);
+    color: var(--color-black);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.3s, background-color 0.3s;
+    z-index: 2001;
+    box-shadow: 0 0 10px var(--color-cyan);
+}
+
+.modal-close-btn:hover {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+    transform: rotate(90deg);
+    box-shadow: 0 0 10px var(--color-purple);
+}
+
+/* Mobile prilagođavanje */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 25px;
+    }
+    .modal-dialog {
+        max-width: 95%;
+    }
+    .modal-close-btn {
+        top: 5px;
+        right: 5px;
+        background-color: var(--color-black);
+        color: var(--color-cyan);
+        border: 2px solid var(--color-cyan);
+    }
+    .modal-icon {
+        font-size: 2.5rem;
+    }
+}

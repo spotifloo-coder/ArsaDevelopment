@@ -41,25 +41,25 @@
         </section>
         
         <section id="o-meni" class="content-section section-animate">
-            <h2 class="section-title">Zašto izabrati mene?</h2>
-            <div class="about-grid">
-                <div class="feature-box card-animate">
-                    <i class="fas fa-gem accent-color"></i>
-                    <h3>Čist, Validiran Kod</h3>
-                    <p>Predan sam detaljima i kreiranju koda bez grešaka, optimizovanog za performanse.</p>
-                </div>
-                <div class="feature-box card-animate">
-                    <i class="fas fa-rocket accent-color"></i>
-                    <h3>Brzina i Optimizacija</h3>
-                    <p>Sajtovi su munjevito brzi, sa visokim ocenama na PageSpeed Insights-u.</p>
-                </div>
-                <div class="feature-box card-animate">
-                    <i class="fas fa-mobile-alt accent-color"></i>
-                    <h3>Mobilna Perfekcija</h3>
-                    <p>Bez preklapanja. Savršeno iskustvo na svakom uređaju (Mobile First pristup).</p>
-                </div>
-            </div>
-        </section>
+    <h2 class="section-title">Zašto izabrati mene?</h2>
+    <div class="about-grid">
+        <div class="feature-box card-animate" data-modal-target="modal-kod">
+            <i class="fas fa-gem accent-color"></i>
+            <h3>Čist, Validiran Kod</h3>
+            <p>Predan sam detaljima i kreiranju koda bez grešaka, optimizovanog za performanse. **(Kliknite za više)**</p>
+        </div>
+        <div class="feature-box card-animate" data-modal-target="modal-brzina">
+            <i class="fas fa-rocket accent-color"></i>
+            <h3>Brzina i Optimizacija</h3>
+            <p>Sajtovi su munjevito brzi, sa visokim ocenama na PageSpeed Insights-u. **(Kliknite za više)**</p>
+        </div>
+        <div class="feature-box card-animate" data-modal-target="modal-mobile">
+            <i class="fas fa-mobile-alt accent-color"></i>
+            <h3>Mobilna Perfekcija</h3>
+            <p>Bez preklapanja. Savršeno iskustvo na svakom uređaju. **(Kliknite za više)**</p>
+        </div>
+    </div>
+    </section>
 
         <section id="usluge" class="content-section section-animate">
             <h2 class="section-title">🛠️ Moje Usluge i Paketi</h2>
@@ -158,7 +158,52 @@
             </form>
 
         </main>
+<div id="modal-container">
+    <div id="modal-kod" class="modal-dialog">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <i class="fas fa-gem accent-color modal-icon"></i>
+            <h3>Čist, Validiran Kod</h3>
+            <p>Detaljno o kvalitetu koda:</p>
+            <ul>
+                <li>**Semantički HTML5:** Koristim najnovije standarde za strukturu sadržaja, što poboljšava SEO i pristupačnost.</li>
+                <li>**BEM Nomenklatura:** Strukturirani CSS kôd (Block Element Modifier) za lako održavanje i skalabilnost projekta.</li>
+                <li>**Validacija:** Svaki deo koda prolazi kroz validaciju kako bi se eliminisale sve greške u renderovanju na različitim brauzerima.</li>
+                <li>**Komentari:** Kod je bogato komentarisan i dokumentovan, što olakšava buduće apdejte ili predaju projekta drugom timu.</li>
+            </ul>
+        </div>
+    </div>
 
+    <div id="modal-brzina" class="modal-dialog">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <i class="fas fa-rocket accent-color modal-icon"></i>
+            <h3>Optimizacija Performansi</h3>
+            <p>Postižem munjevitu brzinu kroz sledeće tehnike:</p>
+            <ul>
+                <li>**Minifikacija i Kompresija:** Svi JS i CSS fajlovi se minifikuju, a slike kompresuju pre postavljanja.</li>
+                <li>**Lazy Loading:** Resursi (slike i video zapisi) se učitavaju samo kada uđu u vidno polje korisnika, čime se ubrzava inicijalno učitavanje.</li>
+                <li>**Browser Caching:** Podešavanje keširanja na serverskom nivou za brže ponovne posete.</li>
+                <li>**PageSpeed Insights:** Uvek ciljam ocenu iznad 90/100 na Google PageSpeed-u, garantujući vrhunske performanse.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-mobile" class="modal-dialog">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <i class="fas fa-mobile-alt accent-color modal-icon"></i>
+            <h3>Mobile-First Pristup</h3>
+            <p>Vaš sajt izgleda perfektno na svakom uređaju jer:</p>
+            <ul>
+                <li>**Prioritet Mobilni:** Dizajniranje počinje od mobilnih uređaja ka desktopu, osiguravajući da najvažniji sadržaj bude optimizovan za male ekrane.</li>
+                <li>**Fleksibilni Layouti:** Koristim moderni CSS Grid i Flexbox za fluidne i adaptivne layout-e.</li>
+                <li>**Retina Ready Grafika:** Slike su optimizovane da izgledaju oštro na ekranima visoke rezolucije.</li>
+                <li>**Testiranje:** Sve se rigorozno testira na popularnim Android i iOS uređajima, kao i simulatorima.</li>
+            </ul>
+        </div>
+    </div>
+</div>
         <footer>
             <p>&copy; 2025 Arsic Development. Sva prava zadržana. Kreirano sa strašću.</p>
         </footer>

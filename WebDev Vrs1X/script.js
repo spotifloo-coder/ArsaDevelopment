@@ -201,4 +201,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicijalni poziv
     calculateTotal();
+
+
+    // 5. LOGIKA MODAL POPUP-a ZA "O MENI" SEKCIJU
+const featureBoxes = document.querySelectorAll('[data-modal-target]');
+const modalContainer = document.getElementById('modal-container');
+const closeButtons = document.querySelectorAll('.modal-close-btn');
+const modalDialogs = document.querySelectorAll('.modal-dialog');
+
+
+// Funkcija za otvaranje modala
+function openModal(modalId) {
+    const targetModal = document.getElementById(modalId);
+    if (targetModal) {
+        // Sakrivamo sve modale pre otvaranja jednog
+        modalDialogs.forEach(modal => modal.style.display = 'none');
+        
+        targetModal.style.display = 'block'; // Prikazuje samo ciljani modal
+        modalContainer.classList.add('active'); // Aktiviranje celog kontejnera/overlay-a
+        document.body.classList.add('menu-open'); // Dodajemo klasu za blokiranje skrolovanja
+    }
+}
+
+// Funkcija za zatvaranje modala
+function closeModal() {
+    modalContainer.classList.remove('active');
+    document.body.classList.remove('menu-open'); // Uklanjanje blokade skrolovanja
+
+    // Mali timeout da se odradi CSS animacija zatvaranja pre skrivanja modala
+    setTimeout(() => {
+        modalDialogs.forEach(modal => modal.style.display = 'none');
+    }, 400); 
+}
+
+// 1. Otvaranje modala klikom na karticu
+featureBoxes.forEach(box => {
+    box.addEventListener('click', (e) => {
+        // Sprečavamo zatvaranje ako se klikne na a link unutar boxa
+        if (e.target.tagName.toLowerCase() === 'a') return; 
+        
+        const modalId = box.dataset.modalTarget;
+        openModal(modalId);
+    });
+});
+
+// 2. Zatvaranje klikom na X dugme
+closeButtons.forEach(btn => {
+    btn.addEventListener('click', closeModal);
+});
+
+// 3. Zatvaranje klikom na zamagljenu pozadinu (overlay)
+modalContainer.addEventListener('click', (e) => {
+    // Proveravamo da li je kliknuto direktno na kontejner, a ne na sadržaj modala
+    if (e.target.id === 'modal-container') {
+        closeModal();
+    }
+});
+
+// 4. Zatvaranje pritiskom na ESC taster
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('active')) {
+        closeModal();
+    }
+    });
 });
